@@ -1,5 +1,6 @@
 package com.devteria.identify_service.Controller;
 
+import com.devteria.identify_service.DTO.Request.ApiResponse;
 import com.devteria.identify_service.DTO.Request.UserCreationRequest;
 import com.devteria.identify_service.DTO.Request.UserUpdateRequest;
 import com.devteria.identify_service.Entity.User;
@@ -18,8 +19,12 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    User createUser(@RequestBody @Valid UserCreationRequest request) {
-        return userService.createRequest(request);
+    ApiResponse<User> createUser(@RequestBody @Valid UserCreationRequest request) {
+        ApiResponse<User> apiResponse = new ApiResponse<>();
+
+        apiResponse.setResult(userService.createRequest(request));
+
+        return apiResponse;
     }
 
     @GetMapping

@@ -2,6 +2,8 @@ package com.devteria.identify_service.Service;
 
 import com.devteria.identify_service.DTO.Request.UserCreationRequest;
 import com.devteria.identify_service.DTO.Request.UserUpdateRequest;
+import com.devteria.identify_service.Exception.AppException;
+import com.devteria.identify_service.Exception.ErrorCode;
 import com.devteria.identify_service.Repository.UserRepository;
 import com.devteria.identify_service.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,7 @@ public class UserService {
         User user = new User();
 
         if(userRepository.existsByUsername(request.getUsername()))
-            throw new RuntimeException("Username already exists");
+            throw new AppException(ErrorCode.USER_EXISTED);
 
         user.setUsername(request.getUsername());
         user.setPassword(request.getPassword());
