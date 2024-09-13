@@ -5,6 +5,7 @@ public enum ErrorCode {
     USERNAME_INVALID(1002, "Username must be at least 3 characters"),
     INVALID_PASSWORD(1003, "Password must be at least 3 characters"),
     INVALID_KEY(1004, "Invalid key"),
+    USER_NOT_EXISTED(1005, "User not already exists"),
     ;
     ErrorCode(int code, String message) {
         this.code = code;
