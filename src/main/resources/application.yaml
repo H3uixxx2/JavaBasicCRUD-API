@@ -8,6 +8,9 @@ spring:
       ddl-auto: update
     show-sql: true
 
+jwt:
+  signerKey: "d50QEGVBDUcii0Avz0E/ygud1QAeIpZ8bB4HNml/Rua7CV6Wbow5K3ZXSw/7x807"
+
 server:
   port: 8080
   servlet:
